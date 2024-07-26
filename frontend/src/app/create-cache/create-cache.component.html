@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <h3 class="mb-4">Add New Key-Value Pair</h3>
+  <form [formGroup]="cacheForm" (ngSubmit)="addKeyValuePair()">
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <label for="newKey" class="form-label">Key:</label>
+        <input type="text" id="newKey" formControlName="newKey" class="form-control" required>
+        <div *ngIf="cacheForm.get('newKey')?.invalid && cacheForm.get('newKey')?.touched" class="text-danger">
+          Key is required.
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="newValue" class="form-label">Value:</label>
+        <input type="text" id="newValue" formControlName="newValue" class="form-control" required>
+        <div *ngIf="cacheForm.get('newValue')?.invalid && cacheForm.get('newValue')?.touched" class="text-danger">
+          Value is required.
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="expirationDate" class="form-label">Expiration time in seconds:</label>
+        <input type="number" id="expirationDate" formControlName="expirationDate" class="form-control" required>
+        <div *ngIf="cacheForm.get('expirationDate')?.invalid && cacheForm.get('expirationDate')?.touched && !cacheForm.get('expirationDate')?.value" class="text-danger">
+          Expiration time is required and must be a number.
+        </div>
+        <div *ngIf="cacheForm.get('expirationDate')?.invalid && cacheForm.get('expirationDate')?.errors && cacheForm.get('expirationDate')?.value" class="text-danger">
+          Enter min 2 sec.
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="cacheForm.invalid">Add</button>
+  </form>
+</div>

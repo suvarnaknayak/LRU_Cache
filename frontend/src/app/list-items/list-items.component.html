@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>Item List</h2>
+      <button class="btn btn-primary" (click)="getKeyValuePairs()">Refresh</button>
+    </div>
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of list | keyvalue">
+          <td>{{item.key}}</td>
+          <td>{{item.value}}</td>
+          <td>
+            <button class="btn btn-danger" (click)="delete(item.key)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/scss/bootstrap.scss";
+
+/* Apply a light background color to the entire application */
+body {
+    background-color: #f8f9fa; /* Light gray background */
+  }
+  
+  .container {
+    background-color: #ffffff; /* White background for containers */
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+  }
+  
