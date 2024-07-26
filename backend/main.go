@@ -1,16 +1,14 @@
 package main
 
 import (
+	"backend/middleware"
+	"backend/router"
 	"log"
 	"net/http"
-	"backend/router"
-	"backend/websocket"
 )
 
 func main() {
 	r := router.NewRouter()
-	go websocket.HandleConnections()
-
+	log.Fatal(http.ListenAndServe(":8080", middleware.CORSMiddleware(r)))
 	log.Println("Server started on :8080")
-	log.Fatal(http.ListenAndServe(":8080", r))
 }
